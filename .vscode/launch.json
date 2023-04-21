@@ -10,8 +10,20 @@
             "request": "launch",
             "cwd": "${workspaceFolder}/efficientdet",
             "program": "tf2/segmentation.py",
+            "args": [
+                "--dataset_split_json",
+                "dataset/xBD/custom_all_disaster_splits.json",
+                "--dataset_dir",
+                "../../building-damage-assessment/dataset",
+                "--initial_epoch",
+                "0",
+                "--max_train_images",
+                "500",
+                "--batch_size",
+                "1"
+            ],
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": false
         },
         {
             "name": "Python: Eval - Segmentation",
