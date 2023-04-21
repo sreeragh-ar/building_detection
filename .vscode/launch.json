@@ -1,0 +1,26 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Training - Segmentation",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/efficientdet",
+            "program": "tf2/segmentation.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Eval - Segmentation",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/efficientdet",
+            "program": "tf2/segmentation_eval.py",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}

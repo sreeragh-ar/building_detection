@@ -4,3 +4,4 @@ __pycache__
 tmp
 .ropeproject
 .pyc
+/efficientdet/dataset/xBD/
