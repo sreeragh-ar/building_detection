@@ -29,6 +29,7 @@ from tf2 import efficientdet_keras
 
 from pathlib import Path
 import json
+from keras.callbacks import ModelCheckpoint
 
 FLAGS = flags.FLAGS
 
@@ -145,6 +146,12 @@ def main(_):
 
   val_steps = len(dataset['val']) // FLAGS.batch_size
 
+  checkpoint_filepath = 'dataset/xBD/checkpoints/epoch_{epoch:02d}'
+  checkpoint_callback = ModelCheckpoint(
+    filepath=checkpoint_filepath,
+    save_weights_only=True,
+    save_freq='epoch')
+
   try:
     logging.info('Training starts')
     model.fit(
@@ -153,7 +160,8 @@ def main(_):
       steps_per_epoch=steps_per_epoch,
       validation_steps=val_steps,
       validation_data=val_dataset,
-      callbacks=[])
+      callbacks=[checkpoint_callback])
+
     logging.info('Training ended successfully')
   except Exception as e:
     logging.info('Encountered exception while training', e)
